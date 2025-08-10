@@ -1,0 +1,11 @@
+{
+  "name": "gize-bot-landing",
+  "functions": {
+    "pages/**/*.js": { "maxDuration": 10 }
+  },
+  "regions": ["cle1"],
+  "env": {
+    "NEXT_PUBLIC_LANDING_CTA_URL": "https://t.me/your-bot?start=landing"
+  }
+}
+
