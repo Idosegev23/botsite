@@ -124,7 +124,7 @@ export default function Landing() {
             <span className="badge">All‑in‑One Automation</span>
             <h1>Your <span className="hl">Smart</span> Telegram Football Betting Assistant</h1>
             <p className="subtitle">
-              Built-for-you Telegram automation. Live predictions, momentum updates around 60', and daily results — tailored to your brand, workflows, and business goals.
+              Built-for-you Telegram automation. Live predictions, momentum updates around the 60‑minute mark, and daily results — tailored to your brand, workflows, and business goals.
             </p>
             <div className="cta-row">
               <a className="cta" href={WHATSAPP_URL} target="_blank" rel="noreferrer">
@@ -142,7 +142,7 @@ export default function Landing() {
           <div className="grid">
             <Feature title="Tailored development" desc="Built to your workflows, brand, and integrations — not a one‑size‑fits‑all tool." />
             <Feature title="More clicks, less effort" desc="Action‑oriented posts with clear CTAs. Expect higher CTRs on key moments." />
-            <Feature title="Real‑time momentum" desc="Timed live status around 60' drives return visits when it matters most." />
+            <Feature title="Real‑time momentum" desc="Timed live status near the 60‑minute mark drives return visits when it matters most." />
             <Feature title="Daily proof of value" desc="End‑of‑day results recap — clean, shareable, and brandable." />
             <Feature title="Zero babysitting" desc="Kickoff‑aware scheduling. No manual triggers. Just outcomes." />
             <Feature title="Frictionless conversion" desc="Inline buttons and coupons routed to the exact next action." />
@@ -168,7 +168,7 @@ export default function Landing() {
           <p className="lead">Short, visual, and action‑oriented content — optimized for Telegram consumption.</p>
           <div className="cards">
             <Card title="Pre‑match hooks" desc="Tease angles and odds to prime users for kickoff." />
-            <Card title="In‑play nudges" desc="Capitalize on momentum shifts around the 60' window." />
+            <Card title="In‑play nudges" desc="Capitalize on momentum shifts around the 60‑minute window." />
             <Card title="Post‑match recap" desc="Highlight results, wins, and next actions to retain attention." />
           </div>
         </section>
