@@ -1,7 +1,8 @@
 import Head from 'next/head';
 import { useEffect, useRef } from 'react';
 
-const WHATSAPP_URL = 'https://wa.me/972545772156?text=Hi%20Lior%2C%20I%27d%20like%20a%20quote%20for%20the%20Telegram%20football%20bot';
+const WHATSAPP_URL = 'https://wa.me/972545772156?text=Hi%20Lior%2C%20I%27d%20like%20a%20quote%20for%20a%20custom%20Telegram%20football%20bot';
+const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL;
 
 export default function Landing() {
   const heroRef = useRef(null);
@@ -96,12 +97,43 @@ export default function Landing() {
   return (
     <>
       <Head>
-        <title>Telegram Football Betting Bot — Live Predictions & Results</title>
+        <title>GoalPulse — Custom Telegram Football Bot: Live Predictions & Results</title>
         <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <meta name="description" content="Automate live predictions, mid‑game status, and daily results with visuals and inline CTAs — fully adaptable to your brand." />
-        <meta property="og:title" content="Telegram Football Betting Bot — Live Predictions & Results" />
-        <meta property="og:description" content="Automate live predictions, mid‑game status, and daily results with visuals and inline CTAs — fully adaptable to your brand." />
+        <meta name="description" content="Custom-built Telegram football automation. Live predictions, 60‑minute momentum updates, and daily results — tailored to your brand and workflows." />
+        <meta property="og:title" content="GoalPulse — Custom Telegram Football Bot" />
+        <meta property="og:description" content="Live predictions, momentum updates, and daily results — built to your spec, brand, and goals." />
+        {SITE_URL ? <link rel="canonical" href={SITE_URL} /> : null}
+        {SITE_URL ? <meta property="og:url" content={SITE_URL} /> : null}
+        <meta property="og:type" content="website" />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content="GoalPulse — Custom Telegram Football Bot" />
+        <meta name="twitter:description" content="Live predictions, momentum updates, and daily results — built to your spec, brand, and goals." />
         <link rel="icon" href="/favicon.svg" />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              '@context': 'https://schema.org',
+              '@type': 'Organization',
+              name: 'GoalPulse',
+              url: SITE_URL || undefined,
+              sameAs: [WHATSAPP_URL]
+            })
+          }}
+        />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              '@context': 'https://schema.org',
+              '@type': 'Service',
+              serviceType: 'Custom Telegram Football Bot Development',
+              provider: { '@type': 'Organization', name: 'GoalPulse' },
+              areaServed: 'Worldwide',
+              availableChannel: { '@type': 'ServiceChannel', serviceUrl: WHATSAPP_URL }
+            })
+          }}
+        />
       </Head>
 
       <header className="site-header">
@@ -218,7 +250,7 @@ export default function Landing() {
         </footer>
       </main>
 
-      <a className="whatsapp-fab" href={WHATSAPP_URL} target="_blank" rel="noreferrer" aria-label="Chat on WhatsApp">WA</a>
+      <a className="whatsapp-fab" href={WHATSAPP_URL} target="_blank" rel="noreferrer" aria-label="Chat on WhatsApp">Chat</a>
 
        <style jsx>{`
         :global(html, body, #__next) { height: 100%; background: #070a12; color: #e7ecf2; font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial; }
