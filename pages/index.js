@@ -124,7 +124,7 @@ export default function Landing() {
             <span className="badge">All‑in‑One Automation</span>
             <h1>Your <span className="hl">Smart</span> Telegram Football Betting Assistant</h1>
             <p className="subtitle">
-              Turn matchdays into measurable growth. Automated live predictions, momentum updates around 60', and daily results — designed to boost clicks, retention, and revenue.
+              Built-for-you Telegram automation. Live predictions, momentum updates around 60', and daily results — tailored to your brand, workflows, and business goals.
             </p>
             <div className="cta-row">
               <a className="cta" href={WHATSAPP_URL} target="_blank" rel="noreferrer">
@@ -140,6 +140,7 @@ export default function Landing() {
           <h2>Benefits that move the needle</h2>
           <p className="lead">Ship consistent, on‑brand content that converts — without adding headcount.</p>
           <div className="grid">
+            <Feature title="Tailored development" desc="Built to your workflows, brand, and integrations — not a one‑size‑fits‑all tool." />
             <Feature title="More clicks, less effort" desc="Action‑oriented posts with clear CTAs. Expect higher CTRs on key moments." />
             <Feature title="Real‑time momentum" desc="Timed live status around 60' drives return visits when it matters most." />
             <Feature title="Daily proof of value" desc="End‑of‑day results recap — clean, shareable, and brandable." />
@@ -152,13 +153,12 @@ export default function Landing() {
         <section className="how" id="how-it-works">
           <h2>How it works</h2>
           <div className="steps">
-            <Step n="01" title="Connect & Configure" desc="Provide your Telegram bot, channel, buttons, coupons, and schedule." />
-            <Step n="02" title="Autonomous Flow" desc="Predictions pre‑match, live status mid‑game, results at end of day." />
-            <Step n="03" title="Scale Engagement" desc="Visual posts + inline CTAs = more clicks and returning users." />
+            <Step n="01" title="Discovery & Requirements" desc="We map your goals, content style, channels, and integrations." />
+            <Step n="02" title="Design & Implementation" desc="We design flows and visuals, then build the bot to your spec." />
+            <Step n="03" title="Launch & Optimize" desc="Ship, measure, and iterate for engagement and conversions." />
           </div>
           <div className="outcomes">
             <div className="metric"><span className="num">2–3x</span><span> more in‑match clicks</span></div>
-            <div className="metric"><span className="num">~60s</span><span> to set up</span></div>
             <div className="metric"><span className="num">0</span><span> manual posts required</span></div>
           </div>
         </section>
@@ -181,7 +181,7 @@ export default function Landing() {
               <cite>Head of Growth, Betting Media Group</cite>
             </blockquote>
             <blockquote className="testimonial">
-              <p>“Setup took minutes. Since then it just runs — posts look on‑brand and drive consistent clicks.”</p>
+              <p>“Delivered as a custom build to our spec. It runs on‑brand and drives consistent clicks.”</p>
               <cite>Operations Lead, Football Community</cite>
             </blockquote>
           </div>
