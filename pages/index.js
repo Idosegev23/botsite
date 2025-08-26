@@ -152,9 +152,11 @@ export default function Landing() {
               </div>
             </div>
             <div className="hero-image">
-              <div className="image-placeholder hero-img">
-                <span>Hero Image: Person with Phone + Generated Content</span>
-              </div>
+              <img 
+                src="/hero.webp" 
+                alt="Person using football bot on phone with AI-generated predictions and content"
+                className="hero-img"
+              />
             </div>
           </div>
 
@@ -359,42 +361,21 @@ export default function Landing() {
         .hero-img { 
           width: 200px; 
           height: 160px; 
-          background: linear-gradient(135deg, rgba(0,212,255,.25), rgba(60,134,255,.2), rgba(0,0,0,.3)); 
-          border: 3px dashed rgba(0,212,255,.8); 
           border-radius: 12px; 
           position: relative; 
           overflow: hidden;
-          display: flex;
-          align-items: center;
-          justify-content: center;
-          color: #ffffff;
-          font-weight: 900;
-          text-align: center;
-          font-size: 14px;
-          line-height: 1.2;
           box-shadow: 0 8px 25px rgba(0,212,255,.3);
-          backdrop-filter: blur(8px);
+          object-fit: cover;
+          object-position: center;
         }
         @media (min-width: 768px) { 
           .hero-img { 
             width: 350px; 
             height: 280px; 
-            font-size: 17px;
           } 
         }
 
-        .hero-img span {
-          position: relative;
-          z-index: 5;
-          text-shadow: 0 2px 12px rgba(0,0,0,.8), 0 0 20px rgba(0,212,255,.5);
-          background: rgba(0,0,0,.6);
-          padding: 8px 12px;
-          border-radius: 8px;
-          border: 1px solid rgba(0,212,255,.5);
-          backdrop-filter: blur(4px);
-          color: #ffffff !important;
-          font-weight: 900 !important;
-        }
+
 
 
 
