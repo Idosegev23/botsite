@@ -578,10 +578,10 @@ export default function Landing() {
         }
         @media (min-width: 768px) { .demo-img { height: 300px; } }
         
-        /* Stacked Cards Styles */
+        /* Fan Cards Styles */
         .stacked-cards { 
           width: 100%; 
-          max-width: 400px; 
+          max-width: 600px; 
           margin: 0 auto; 
           position: relative; 
         }
@@ -597,12 +597,13 @@ export default function Landing() {
         
         .screenshot-card { 
           position: absolute; 
-          width: 280px; 
-          height: 320px; 
+          width: 220px; 
+          height: 300px; 
           border-radius: 16px; 
           overflow: hidden; 
           box-shadow: 0 15px 35px rgba(0,212,255,.3); 
-          transition: all 0.3s ease; 
+          transition: all 0.4s ease; 
+          transform-origin: bottom center; 
         }
         
         .screenshot-card img { 
@@ -614,37 +615,41 @@ export default function Landing() {
         
         .card-1 { 
           z-index: 3; 
-          transform: rotate(-2deg); 
+          transform: rotate(15deg) translateX(80px); 
           box-shadow: 0 20px 40px rgba(0,212,255,.4); 
         }
         
         .card-2 { 
           z-index: 2; 
-          transform: rotate(1deg) translate(8px, -5px); 
-          box-shadow: 0 15px 30px rgba(60,134,255,.3); 
+          transform: rotate(0deg); 
+          box-shadow: 0 18px 36px rgba(60,134,255,.35); 
         }
         
         .card-3 { 
           z-index: 1; 
-          transform: rotate(-1deg) translate(-6px, 3px); 
-          box-shadow: 0 10px 25px rgba(255,107,107,.2); 
+          transform: rotate(-15deg) translateX(-80px); 
+          box-shadow: 0 15px 30px rgba(255,107,107,.3); 
         }
         
         .card-stack:hover .card-1 { 
-          transform: rotate(-2deg) translate(-15px, -10px) scale(1.02); 
+          transform: rotate(20deg) translateX(100px) scale(1.05); 
         }
         
         .card-stack:hover .card-2 { 
-          transform: rotate(1deg) translate(0px, -8px) scale(1.01); 
+          transform: rotate(0deg) scale(1.08); 
         }
         
         .card-stack:hover .card-3 { 
-          transform: rotate(-1deg) translate(15px, 5px); 
+          transform: rotate(-20deg) translateX(-100px) scale(1.05); 
         }
         
         @media (min-width: 768px) { 
           .card-stack { height: 400px; } 
-          .screenshot-card { width: 320px; height: 360px; } 
+          .screenshot-card { width: 260px; height: 340px; } 
+          .card-1 { transform: rotate(18deg) translateX(120px); }
+          .card-3 { transform: rotate(-18deg) translateX(-120px); }
+          .card-stack:hover .card-1 { transform: rotate(25deg) translateX(140px) scale(1.05); }
+          .card-stack:hover .card-3 { transform: rotate(-25deg) translateX(-140px) scale(1.05); }
         }
         
         
