@@ -65,15 +65,15 @@ export default function Landing() {
           scrollTrigger: { trigger: '.faq', start: 'top 80%' }
         });
 
-        // Animate screenshot carousel on scroll
-        const carouselCards = gsap.utils.toArray('.screenshot-card');
-        gsap.from(carouselCards, {
-          y: 50,
+        // Animate stacked cards on scroll
+        const stackedCards = gsap.utils.toArray('.screenshot-card');
+        gsap.from(stackedCards, {
+          y: 30,
           opacity: 0,
-          duration: 0.8,
-          stagger: 0.15,
-          ease: 'power3.out',
-          scrollTrigger: { trigger: '.screenshot-carousel', start: 'top 70%' }
+          duration: 0.6,
+          stagger: 0.1,
+          ease: 'power2.out',
+          scrollTrigger: { trigger: '.stacked-cards', start: 'top 75%' }
         });
       }, pageRef);
 
@@ -87,44 +87,11 @@ export default function Landing() {
         a.show();
       }
 
-      // Screenshot carousel functionality
-      let currentIndex = 0;
-      const cards = document.querySelectorAll('.screenshot-card');
-      const dots = document.querySelectorAll('.carousel-dots .dot');
-      
-      function showCard(index) {
-        cards.forEach(card => card.classList.remove('active'));
-        dots.forEach(dot => dot.classList.remove('active'));
-        
-        if (cards[index]) {
-          cards[index].classList.add('active');
-        }
-        if (dots[index]) {
-          dots[index].classList.add('active');
-        }
-        currentIndex = index;
-      }
 
-      // Add click handlers for dots
-      dots.forEach((dot, index) => {
-        dot.addEventListener('click', () => showCard(index));
-      });
-
-      // Auto-advance carousel every 4 seconds
-      const carouselInterval = setInterval(() => {
-        const nextIndex = (currentIndex + 1) % cards.length;
-        showCard(nextIndex);
-      }, 4000);
-
-      // Store cleanup function
-      cleanupMouse = () => {
-        clearInterval(carouselInterval);
-      };
     })();
 
     return () => {
       ctx?.revert();
-      cleanupMouse?.();
     };
   }, []);
   return (
@@ -218,25 +185,17 @@ export default function Landing() {
             <Feature title="Daily Summaries" desc="End-of-day recaps with results and highlights." />
           </div>
           <div className="demo-preview">
-            <div className="screenshot-carousel">
-              <div className="carousel-container">
-                <div className="screenshot-card active" data-index="0">
-                  <img src="/scr1.webp" alt="AI Football Predictions - Live match predictions with detailed analysis" />
-                  <div className="card-label">Live Predictions</div>
-                </div>
-                <div className="screenshot-card" data-index="1">
-                  <img src="/scr2.webp" alt="Breaking News Alerts - Real-time football news updates" />
-                  <div className="card-label">Breaking News</div>
-                </div>
-                <div className="screenshot-card" data-index="2">
+            <div className="stacked-cards">
+              <div className="card-stack">
+                <div className="screenshot-card card-3">
                   <img src="/scr3.webp" alt="Match Updates - Live commentary and key moments during games" />
-                  <div className="card-label">Live Updates</div>
                 </div>
-              </div>
-              <div className="carousel-dots">
-                <span className="dot active" data-index="0"></span>
-                <span className="dot" data-index="1"></span>
-                <span className="dot" data-index="2"></span>
+                <div className="screenshot-card card-2">
+                  <img src="/scr2.webp" alt="Breaking News Alerts - Real-time football news updates" />
+                </div>
+                <div className="screenshot-card card-1">
+                  <img src="/scr1.webp" alt="AI Football Predictions - Live match predictions with detailed analysis" />
+                </div>
               </div>
             </div>
           </div>
@@ -619,51 +578,31 @@ export default function Landing() {
         }
         @media (min-width: 768px) { .demo-img { height: 300px; } }
         
-        /* Screenshot Carousel Styles */
-        .screenshot-carousel { 
+        /* Stacked Cards Styles */
+        .stacked-cards { 
           width: 100%; 
-          max-width: 600px; 
+          max-width: 400px; 
           margin: 0 auto; 
           position: relative; 
         }
         
-        .carousel-container { 
+        .card-stack { 
           position: relative; 
           width: 100%; 
-          height: 400px; 
-          perspective: 1000px; 
+          height: 350px; 
+          display: flex; 
+          justify-content: center; 
+          align-items: center; 
         }
         
         .screenshot-card { 
           position: absolute; 
-          top: 0; 
-          left: 50%; 
-          transform: translateX(-50%) translateZ(-100px) scale(0.85); 
           width: 280px; 
-          height: 350px; 
-          border-radius: 20px; 
+          height: 320px; 
+          border-radius: 16px; 
           overflow: hidden; 
-          box-shadow: 0 15px 40px rgba(0,212,255,.2); 
-          opacity: 0.7; 
-          transition: all 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94); 
-          z-index: 1; 
-        }
-        
-        .screenshot-card.active { 
-          transform: translateX(-50%) translateZ(0) scale(1); 
-          opacity: 1; 
-          z-index: 3; 
-          box-shadow: 0 25px 60px rgba(0,212,255,.4); 
-        }
-        
-        .screenshot-card:nth-child(2) { 
-          transform: translateX(-40%) translateZ(-50px) scale(0.9) rotateY(-5deg); 
-          z-index: 2; 
-        }
-        
-        .screenshot-card:nth-child(3) { 
-          transform: translateX(-60%) translateZ(-50px) scale(0.9) rotateY(5deg); 
-          z-index: 2; 
+          box-shadow: 0 15px 35px rgba(0,212,255,.3); 
+          transition: all 0.3s ease; 
         }
         
         .screenshot-card img { 
@@ -673,52 +612,39 @@ export default function Landing() {
           object-position: center; 
         }
         
-        .card-label { 
-          position: absolute; 
-          bottom: 0; 
-          left: 0; 
-          right: 0; 
-          background: linear-gradient(180deg, transparent, rgba(0,0,0,0.9)); 
-          color: #ffffff; 
-          padding: 20px 16px 16px; 
-          font-weight: 700; 
-          font-size: 16px; 
-          text-align: center; 
-          backdrop-filter: blur(8px); 
+        .card-1 { 
+          z-index: 3; 
+          transform: rotate(-2deg); 
+          box-shadow: 0 20px 40px rgba(0,212,255,.4); 
         }
         
-        .carousel-dots { 
-          display: flex; 
-          justify-content: center; 
-          gap: 12px; 
-          margin-top: 30px; 
+        .card-2 { 
+          z-index: 2; 
+          transform: rotate(1deg) translate(8px, -5px); 
+          box-shadow: 0 15px 30px rgba(60,134,255,.3); 
         }
         
-        .dot { 
-          width: 12px; 
-          height: 12px; 
-          border-radius: 50%; 
-          background: rgba(0,212,255,.3); 
-          cursor: pointer; 
-          transition: all 0.3s ease; 
-          border: 2px solid rgba(0,212,255,.5); 
+        .card-3 { 
+          z-index: 1; 
+          transform: rotate(-1deg) translate(-6px, 3px); 
+          box-shadow: 0 10px 25px rgba(255,107,107,.2); 
         }
         
-        .dot:hover { 
-          background: rgba(0,212,255,.6); 
-          transform: scale(1.2); 
+        .card-stack:hover .card-1 { 
+          transform: rotate(-2deg) translate(-15px, -10px) scale(1.02); 
         }
         
-        .dot.active { 
-          background: #00d4ff; 
-          border-color: #00d4ff; 
-          box-shadow: 0 0 20px rgba(0,212,255,.6); 
+        .card-stack:hover .card-2 { 
+          transform: rotate(1deg) translate(0px, -8px) scale(1.01); 
+        }
+        
+        .card-stack:hover .card-3 { 
+          transform: rotate(-1deg) translate(15px, 5px); 
         }
         
         @media (min-width: 768px) { 
-          .carousel-container { height: 450px; } 
-          .screenshot-card { width: 320px; height: 400px; } 
-          .card-label { font-size: 18px; padding: 24px 20px 20px; } 
+          .card-stack { height: 400px; } 
+          .screenshot-card { width: 320px; height: 360px; } 
         }
         
         
